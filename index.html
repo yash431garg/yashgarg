@@ -230,11 +230,9 @@
         <h2 class="section-title">Contact</h2>
 
         <div class="contact__container bd-grid">
-          <form
-            action="mailto:name@gmail.com"
-            class="contact__form"
-            method="POST"
-          >
+          <!-- action="mailto:name@gmail.com" -->
+          <!-- method="POST" -->
+          <form class="contact__form">
             <input type="text" placeholder="Name" class="contact__input" />
             <input type="mail" placeholder="Email" class="contact__input" />
             <textarea
@@ -244,7 +242,13 @@
               rows="10"
               class="contact__input"
             ></textarea>
-            <button class="contact__button button" type="submit">Enter</button>
+            <!-- type="submit" -->
+            <button
+              class="contact__button button"
+              onclick="alert('Sorry under development')"
+            >
+              Enter
+            </button>
           </form>
         </div>
       </section>
