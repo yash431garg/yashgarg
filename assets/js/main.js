@@ -55,3 +55,34 @@ sr.reveal(".work__img", { interval: 200 });
 
 /*SCROLL CONTACT*/
 sr.reveal(".contact__input", { interval: 200 });
+
+// form
+const contactForm = document.querySelector(".contact__form");
+const name = document.getElementById("name");
+const email = document.getElementById("email");
+const message = document.getElementById("message");
+
+contactForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const formData = {
+    name: name.value,
+    email: email.value,
+    message: message.value,
+  };
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "/");
+  xhr.setRequestHeader("content-type", "application/json");
+  xhr.onload = function () {
+    console.log(xhr.responseText);
+    if (xhr.responseText == "success") {
+      alert("Thankyou your message has been sent");
+      console.log(xhr.responseText);
+      name = "";
+      email = "";
+      message = "";
+    } else {
+      alert("Sorry something went wrong");
+    }
+  };
+  xhr.send(JSON.stringify(formData));
+});
