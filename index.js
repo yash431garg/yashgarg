@@ -14,7 +14,6 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 app.post("/", (req, res) => {
-  console.log(req.body);
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -30,10 +29,8 @@ app.post("/", (req, res) => {
   };
   transporter.sendMail(mailOptions, (err, info) => {
     if (err) {
-      console.log(err);
       res.send("error");
     } else {
-      console.log(info);
       res.send("success");
     }
   });
