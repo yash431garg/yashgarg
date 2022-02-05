@@ -24,13 +24,12 @@ app.post("/", (req, res) => {
   const mailOptions = {
     from: req.body.email,
     to: "yash0421garg@gmail.com",
-    subject: `Message from ${req.body.email}`,
+    subject: `Message from ${req.body.name}`,
     text: req.body.message,
   };
   transporter.sendMail(mailOptions, (err, info) => {
     if (err) {
-      console.log(err);
-      res.send("error");
+      res.send(err);
     } else {
       res.send("success");
     }
