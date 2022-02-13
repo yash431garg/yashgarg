@@ -69,12 +69,11 @@ contactForm.addEventListener("submit", function (e) {
     email: email.value,
     message: message.value,
   };
-console.log(formData)
+
   let xhr = new XMLHttpRequest();
   xhr.open("POST", "/");
   xhr.setRequestHeader("content-type", "application/json");
   xhr.onload = function () {
-
     if (xhr.responseText == "success") {
       alert("Thankyou your message has been sent");
       name = "";
