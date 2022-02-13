@@ -58,7 +58,7 @@ sr.reveal(".contact__input", { interval: 100 });
 
 // form
 const contactForm = document.querySelector(".contact__form");
-const username = document.getElementById("name");
+const name = document.getElementById("name");
 const email = document.getElementById("email");
 const message = document.getElementById("message");
 
@@ -69,14 +69,14 @@ contactForm.addEventListener("submit", function (e) {
     email: email.value,
     message: message.value,
   };
+console.log(formData)
   let xhr = new XMLHttpRequest();
   xhr.open("POST", "/");
   xhr.setRequestHeader("content-type", "application/json");
   xhr.onload = function () {
-    console.log(xhr.responseText);
+
     if (xhr.responseText == "success") {
       alert("Thankyou your message has been sent");
-      console.log(xhr.responseText);
       name = "";
       email = "";
       message = "";
