@@ -263,7 +263,7 @@ img {
 }
 .skills__text {
   margin-bottom: var(--mb-4);
-  text-align: center;
+  text-align: justify;
 }
 .skills__data {
   display: flex;
@@ -294,16 +294,16 @@ img {
   z-index: var(--z-back);
 }
 .skills__web {
-  width: 80%;
+  width: 100%;
 }
 .skills__content {
-  width: 65%;
+  width: 100%;
 }
 .skills__blockchain {
-  width: 50%;
+  width: 100%;
 }
 .skills__market {
-  width: 45%;
+  width: 100%;
 }
 .skills__img {
   border-radius: 0.5rem;
