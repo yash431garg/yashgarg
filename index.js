@@ -33,7 +33,7 @@ app.post("/", (req, res) => {
     if (err) {
       res.send(err);
     } else {
-      res.send("success");
+      res.send(info);
     }
   });
 });

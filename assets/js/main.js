@@ -25,6 +25,22 @@ function linkAction() {
 }
 navLink.forEach((n) => n.addEventListener("click", linkAction));
 
+function showNotification(text) {
+  // document.getElementById('notification').querySelector(p).textContent = text;
+  document.getElementById('notification').style.display = 'block';
+}
+
+document.getElementById('close-button').addEventListener('click', function() {
+  document.getElementById('notification').style.display = 'none';
+});
+
+
+
+// // show notification when button is clicked
+// document.getElementById('button').addEventListener('click', function() {
+//   showNotification();
+// });
+
 /*===== SCROLL REVEAL ANIMATION =====*/
 const sr = ScrollReveal({
   origin: "top",
@@ -69,18 +85,21 @@ contactForm.addEventListener("submit", function (e) {
     email: email.value,
     message: message.value,
   };
+  showNotification();
 
   let xhr = new XMLHttpRequest();
   xhr.open("POST", "/");
   xhr.setRequestHeader("content-type", "application/json");
   xhr.onload = function () {
+
+    console.log(xhr.responseText)
     if (xhr.responseText == "success") {
-      alert("Thankyou your message has been sent");
       name = "";
       email = "";
       message = "";
+    
     } else {
-      alert("Sorry something went wrong");
+      showNotification()
     }
   };
   xhr.send(JSON.stringify(formData));
