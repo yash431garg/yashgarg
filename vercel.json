@@ -1,5 +1,5 @@
 {
-    "version": 1,
+    "version": 2,
     "name": "yash-garg",
     "builds": [
        { "src": "index.js", "use": "@vercel/node" }
