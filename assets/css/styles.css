@@ -249,7 +249,9 @@ img {
   .roller #rolltext {  
   animation: slide-mob 5s infinite;  
 }
-  
+.home__img > img{
+  display: none;
+}
   @keyframes slide-mob {
   0%{
     top:0;
@@ -737,6 +739,7 @@ img {
   .contact__container {
     justify-items: center;
   }
+  
 }
 
 @media screen and (min-width: 1024px) {

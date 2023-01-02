@@ -4,37 +4,37 @@ const showMenu = (toggleId, navId) => {
     nav = document.getElementById(navId);
 
   if (toggle && nav) {
-    toggle.addEventListener("click", () => {
-      nav.classList.toggle("show");
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('show');
+      document.querySelector('body').style.overflow = 'hidden';
     });
   }
 };
-showMenu("nav-toggle", "nav-menu");
+showMenu('nav-toggle', 'nav-menu');
+
 
 /*===== ACTIVE AND REMOVE MENU =====*/
-const navLink = document.querySelectorAll(".nav__link");
+const navLink = document.querySelectorAll('.nav__link');
 
 function linkAction() {
   /*Active link*/
-  navLink.forEach((n) => n.classList.remove("active"));
-  this.classList.add("active");
+  navLink.forEach((n) => n.classList.remove('active'));
+  this.classList.add('active');
 
   /*Remove menu mobile*/
-  const navMenu = document.getElementById("nav-menu");
-  navMenu.classList.remove("show");
+  const navMenu = document.getElementById('nav-menu');
+  navMenu.classList.remove('show');
 }
-navLink.forEach((n) => n.addEventListener("click", linkAction));
+navLink.forEach((n) => n.addEventListener('click', linkAction));
 
 function showNotification(text) {
   // document.getElementById('notification').querySelector(p).textContent = text;
   document.getElementById('notification').style.display = 'block';
 }
 
-document.getElementById('close-button').addEventListener('click', function() {
+document.getElementById('close-button').addEventListener('click', function () {
   document.getElementById('notification').style.display = 'none';
 });
-
-
 
 // // show notification when button is clicked
 // document.getElementById('button').addEventListener('click', function() {
@@ -43,42 +43,42 @@ document.getElementById('close-button').addEventListener('click', function() {
 
 /*===== SCROLL REVEAL ANIMATION =====*/
 const sr = ScrollReveal({
-  origin: "top",
-  distance: "80px",
+  origin: 'top',
+  distance: '80px',
   duration: 1000,
   reset: true,
 });
 
 /*SCROLL HOME*/
-sr.reveal(".home__title", {});
-sr.reveal(".button", { delay: 200 });
-sr.reveal(".home__img", { delay: 400 });
-sr.reveal(".home__social-icon", { interval: 200 });
+sr.reveal('.home__title', {});
+sr.reveal('.button', { delay: 200 });
+sr.reveal('.home__img', { delay: 400 });
+sr.reveal('.home__social-icon', { interval: 200 });
 
 /*SCROLL ABOUT*/
-sr.reveal(".about__img", {});
-sr.reveal(".about__subtitle", { delay: 400 });
-sr.reveal(".about__text", { delay: 400 });
+sr.reveal('.about__img', {});
+sr.reveal('.about__subtitle', { delay: 400 });
+sr.reveal('.about__text', { delay: 400 });
 
 /*SCROLL SKILLS*/
-sr.reveal(".skills__subtitle", {});
-sr.reveal(".skills__text", {});
-sr.reveal(".skills__data", { interval: 200 });
-sr.reveal(".skills__img", { delay: 600 });
+sr.reveal('.skills__subtitle', {});
+sr.reveal('.skills__text', {});
+sr.reveal('.skills__data', { interval: 200 });
+sr.reveal('.skills__img', { delay: 600 });
 
 /*SCROLL WORK*/
-sr.reveal(".work__img", { interval: 200 });
+sr.reveal('.work__img', { interval: 200 });
 
 /*SCROLL CONTACT*/
-sr.reveal(".contact__input", { interval: 100 });
+sr.reveal('.contact__input', { interval: 100 });
 
 // form
-const contactForm = document.querySelector(".contact__form");
-const name = document.getElementById("name");
-const email = document.getElementById("email");
-const message = document.getElementById("message");
+const contactForm = document.querySelector('.contact__form');
+const name = document.getElementById('name');
+const email = document.getElementById('email');
+const message = document.getElementById('message');
 
-contactForm.addEventListener("submit", function (e) {
+contactForm.addEventListener('submit', function (e) {
   e.preventDefault();
   const formData = {
     name: name.value,
@@ -88,18 +88,16 @@ contactForm.addEventListener("submit", function (e) {
   showNotification();
 
   let xhr = new XMLHttpRequest();
-  xhr.open("POST", "/");
-  xhr.setRequestHeader("content-type", "application/json");
+  xhr.open('POST', '/');
+  xhr.setRequestHeader('content-type', 'application/json');
   xhr.onload = function () {
-
-    console.log(xhr.responseText)
-    if (xhr.responseText == "success") {
-      name = "";
-      email = "";
-      message = "";
-    
+    console.log(xhr.responseText);
+    if (xhr.responseText == 'success') {
+      name = '';
+      email = '';
+      message = '';
     } else {
-      showNotification()
+      showNotification();
     }
   };
   xhr.send(JSON.stringify(formData));
