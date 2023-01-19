@@ -27,14 +27,14 @@
   --body-font: "Poppins", sans-serif;
   --big-font-size: 2rem;
   --h2-font-size: 1.25rem;
-  --normal-font-size: 0.938rem;
+  --normal-font-size: 0.7rem;
 }
 
 @media screen and (min-width: 768px) {
   :root {
     --big-font-size: 3.5rem;
     --h2-font-size: 2rem;
-    --normal-font-size: 1rem;
+    --normal-font-size: 0.9rem;
   }
 }
 
@@ -54,30 +54,6 @@
   --z-normal: 1;
   --z-tooltip: 10;
   --z-fixed: 100;
-}
-
-::-webkit-scrollbar {
-width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background-color: var(--first-color);
-}
-::-webkit-scrollbar-thumb {
-  background-color:  var(--first-color);
-  border-radius:5px;
-}
-::-webkit-scrollbar-thumb {
-  background-color: var(--first-color);
-  border-radius: 5px;
-  border: 2px solid transparent;
-  background-clip: content-box;
-}
-::-webkit-scrollbar-thumb:hover {
-  background-color:var(--second-color);
 }
 
 
@@ -142,7 +118,46 @@ img {
 }
 
 
-
+.toggle-label {
+  width:50px;
+  height:25px;
+  position: relative;
+  display: block;
+  background: #ebebeb;
+  border-radius: 200px;
+  box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4), inset 0px -5px 15px rgba(255,255,255,0.4);
+  cursor: pointer;
+}
+.toggle-label:after {
+  content: "";
+  width:25px;
+  height: 25px;
+  position: absolute;
+  /* top:5px; */
+  /* left:5px; */
+  background: linear-gradient(180deg,#ffcc89,#d8860b);
+  border-radius: 180px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+}
+#darkmode-toggle {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+#darkmode-toggle :checked + .toggle-label {
+  background: #242424;
+}
+#darkmode-toggle :checked + .toggle-label:after {
+  left:490px;
+  transform: translateX(-100%);
+  background: linear-gradient(180deg,#777,#3a3a3a);
+}
+.toggle-label, .toggle-label:after {
+  transition: 0.3s
+}
+.toggle-label:active:after{ 
+  width: 260px; 
+}
 .cursor {
   width: 20px;
   height: 20px;
@@ -621,8 +636,8 @@ img {
 }
 
 .work__img {
-  box-shadow: 0 4px 25px rgba(14, 36, 49, 0.15);
-  border-radius: 0.5rem;
+  /* box-shadow: 0 4px 25px rgba(14, 36, 49, 0.15); */
+  /* border-radius: 0.5rem; */
   overflow: hidden;
 }
 
@@ -663,6 +678,7 @@ img {
   text-align: center;
   font-weight: var(--font-semi);
   padding: 2rem 0;
+  z-index: 100;
 }
 
 .footer__title {
