@@ -556,7 +556,9 @@ img {
 .about__img {
   justify-self: center;
 }
-
+.about__text{
+  text-align: justify;
+}
 .about__img img {
   width: 200px;
   border-radius: 0.5rem;
