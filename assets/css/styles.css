@@ -420,6 +420,15 @@ img {
     background-color: var(--second-color);
     transition: 0.5s;
   }
+  .home__social {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: space-between;
+    padding: 0px 50px;
+   }
+   /* .home__social-icon {
+    margin-bottom:0!important;
+   } */
 }
 
 .nav__item {
