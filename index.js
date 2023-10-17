@@ -1,11 +1,14 @@
 const express = require("express");
 const path = require("path");
-var favicon = require("serve-favicon");
+const favicon = require("serve-favicon");
 const nodemailer = require("nodemailer");
 require("dotenv").config();
 
 const app = express();
+
 app.use(express.static(path.join(__dirname, "assets")));
+
+
 app.use(express.json());
 
 app.use(favicon(path.join(__dirname + "/assets/img/favicon.ico")));
@@ -13,7 +16,10 @@ app.use(favicon(path.join(__dirname + "/assets/img/favicon.ico")));
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
+
+
 app.post("/", (req, res) => {
+
 
   const transporter = nodemailer.createTransport({
     service: "gmail",
@@ -39,9 +45,10 @@ app.post("/", (req, res) => {
 });
 
 let port = process.env.PORT;
+
 if (port == null || port == "") {
   port = 3000;
 }
 app.listen(port, function () {
-  console.log("Server has started");
+  console.log(`Server has started on port ${port}`);
 });

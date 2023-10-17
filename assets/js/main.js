@@ -27,19 +27,6 @@ function linkAction() {
 }
 navLink.forEach((n) => n.addEventListener('click', linkAction));
 
-function showNotification(text) {
-  // document.getElementById('notification').querySelector(p).textContent = text;
-  document.getElementById('notification').style.display = 'block';
-}
-
-document.getElementById('close-button').addEventListener('click', function () {
-  document.getElementById('notification').style.display = 'none';
-});
-
-// // show notification when button is clicked
-// document.getElementById('button').addEventListener('click', function() {
-//   showNotification();
-// });
 
 /*===== SCROLL REVEAL ANIMATION =====*/
 const sr = ScrollReveal({
@@ -68,37 +55,29 @@ sr.reveal('.skills__img', { delay: 600 });
 
 /*SCROLL WORK*/
 sr.reveal('.work__img', { interval: 200 });
+sr.reveal('.testimonials-item', { interval: 400 });
+sr.reveal('.timeline', { interval: 400 });
 
 /*SCROLL CONTACT*/
+sr.reveal('.contact__item', { interval: 200 });
 sr.reveal('.contact__input', { interval: 100 });
 
 // form
 const contactForm = document.querySelector('.contact__form');
-const name = document.getElementById('name');
+const userName = document.getElementById('name');
 const email = document.getElementById('email');
 const message = document.getElementById('message');
 
 contactForm.addEventListener('submit', function (e) {
   e.preventDefault();
   const formData = {
-    name: name.value,
+    name: userName.value,
     email: email.value,
     message: message.value,
   };
-  showNotification();
 
   let xhr = new XMLHttpRequest();
   xhr.open('POST', '/');
   xhr.setRequestHeader('content-type', 'application/json');
-  xhr.onload = function () {
-    console.log(xhr.responseText);
-    if (xhr.responseText == 'success') {
-      name = '';
-      email = '';
-      message = '';
-    } else {
-      showNotification();
-    }
-  };
   xhr.send(JSON.stringify(formData));
 });
