@@ -38,8 +38,10 @@ app.post("/", (req, res) => {
   transporter.sendMail(mailOptions, (err, info) => {
     if (err) {
       res.send(err);
+      alert('fail')
     } else {
       res.send(info);
+      alert('success')
     }
   });
 });
